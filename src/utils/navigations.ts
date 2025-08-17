@@ -1,13 +1,8 @@
 export const navigation = [
     {
         id: 1,
-        to: "/dashboard", // index -> Employees
-        name: "Employees"
-    },
-    {
-        id: 2,
-        to: "/dashboard/users",
-        name: "All Users"
+        to: "/", // index -> Employees
+        name: "Users"
     },
     {
         id: 3,

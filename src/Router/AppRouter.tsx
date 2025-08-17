@@ -1,10 +1,10 @@
 import Attendence from "@/features/Attendance/Attendence";
 import Dashboard from "@/features/dashboard/Dashboard";
-import Employees from "@/features/Employees/Employees";
+import Users from "@/features/Employees/Users";
 import LoginPage from "@/features/LoginPage.tsx/LoginPage";
 import Payroll from "@/features/Payroll/Payroll";
 import Settings from "@/features/settings/Settings";
-import Users from "@/features/users/Users";
+
 import { useRoutes, type RouteObject } from "react-router-dom";
 
 export const AppRouter = () => {
@@ -20,13 +20,9 @@ export const AppRouter = () => {
         {
           // path: "employees",
           index: true,
-          element: <Employees />,
+          element: <Users/>,
         },
-        {
-          // path: "employees",
-          path: "users",
-          element: <Users />,
-        },
+
         {
           path: "payroll",
           element: <Payroll />,

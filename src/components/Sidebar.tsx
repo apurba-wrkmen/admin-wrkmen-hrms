@@ -2,19 +2,24 @@ import { navigation } from "@/utils/navigations";
 import { NavLink } from "react-router-dom";
 import { Button } from "./ui/button";
 import wrkmen_hrms from "@/assets/wrkmen_hrms.svg";
+import { BiLogOut } from "react-icons/bi";
+import { useLogout } from "@/hooks/useAuth";
 
 export default function Sidebar() {
+  const { logout } = useLogout();
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <div className=" flex flex-col w-44 px-8 py-5 h-dvh justify-between">
       <div className="flex flex-col gap-5">
-        <img src={wrkmen_hrms} alt="" srcset="" className="h-[80px]" />
+        <img src={wrkmen_hrms} alt="" className="h-[80px]" />
 
-        {navigation.map((el) => {
+        {navigation.map((el, index) => {
           return (
             <div>
-              {" "}
               <NavLink
-                key={el.id}
+                key={index}
                 to={el.to}
                 end={el.to === "/dashboard"}
                 className={({ isActive }) =>
@@ -29,7 +34,10 @@ export default function Sidebar() {
           );
         })}
       </div>
-      <Button>Logout</Button>
+      <Button className="cursor-pointer" onClick={handleLogout}>
+        {" "}
+        <BiLogOut /> <span>Logout</span>
+      </Button>
     </div>
   );
 }

@@ -5,8 +5,14 @@ import { TableCell, TableRow } from "./ui/table";
 import wrkmen_hrms from "@/assets/wrkmen_hrms.svg";
 
 export default function ProfileCard({ details }): ReactElement {
-  const { firstName, lastName, designation, employeeCode, employeeType } =
-    details;
+  const {
+    firstName,
+    lastName,
+    designation,
+    employeeCode,
+    accountStandard,
+    Status,
+  } = details;
 
   const fullName = firstName + " " + lastName;
   return (
@@ -23,14 +29,28 @@ export default function ProfileCard({ details }): ReactElement {
             />
             {/* <div className="h-20 w-20 aspect-auto bg-red-200 rounded-xl relative"></div> */}
             {/* Small circle badge */}
-            <div className="h-3 w-3 bg-green-400 rounded-full absolute bottom-0 right-0 border-2 border-white z-10"></div>
+            {Status === "Active" ? (
+              <div
+                className={`h-4 w-4 bg-green-400 rounded-full absolute bottom-0 right-0 border-2 border-white z-10`}
+              ></div>
+            ) : (
+              <div
+                className={`h-4 w-4 bg-red-600 rounded-full absolute bottom-0 right-0 border-2 border-white z-10`}
+              ></div>
+            )}
           </div>
 
           {/* Name and designation */}
           <div>
             <h3 className="font-bold text-l text-background3">{fullName}</h3>
+
             <h4>
-              {designation} <span className="bg-background2 px-2 pb-0.5 rounded-sm ml-3 text-white">{employeeType}</span>
+              {designation}{" "}
+              {accountStandard !== "employee" ? (
+                <span className="bg-background2 px-2 pb-0.5 rounded-sm ml-3 text-white">
+                  {accountStandard}
+                </span>
+              ) : null}
             </h4>
             <h4 className="font-bold text-background2 mt-2">{employeeCode}</h4>
           </div>
