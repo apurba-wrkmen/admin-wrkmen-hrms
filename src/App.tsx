@@ -14,13 +14,15 @@ function App() {
     },
   });
   return (
-    <QueryClientProvider client={queryClient}>
-      <Toaster/>
-      <BrowserRouter>
-        <AppRouter />
-      </BrowserRouter>
-      <ReactQueryDevtools initialIsOpen={true} />
-    </QueryClientProvider>
+    <div className="mx-4 ">
+      <QueryClientProvider client={queryClient}>
+        <Toaster />
+        <BrowserRouter>
+          <AppRouter />
+        </BrowserRouter>
+        <ReactQueryDevtools initialIsOpen={true} />
+      </QueryClientProvider>
+    </div>
   );
 }
 
