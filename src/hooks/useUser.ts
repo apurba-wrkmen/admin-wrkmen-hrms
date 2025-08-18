@@ -37,3 +37,4 @@ export function useCurrentProfile(id: string) {
         profile, isPending, isError, access: accessLevelCheck(profile?.[0]?.accountStandard)
     }
 }
+

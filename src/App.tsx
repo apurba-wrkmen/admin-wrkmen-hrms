@@ -14,7 +14,7 @@ function App() {
     },
   });
   return (
-    <div className="mx-4 ">
+    <div >
       <QueryClientProvider client={queryClient}>
         <Toaster />
         <BrowserRouter>

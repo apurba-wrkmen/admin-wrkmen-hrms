@@ -2,8 +2,6 @@ import type { ReactElement } from "react";
 import { TableCell, TableRow } from "./ui/table";
 // import { Card } from "@/components/ui/card";
 
-import wrkmen_hrms from "@/assets/wrkmen_hrms.svg";
-
 export default function ProfileCard({ details }): ReactElement {
   const {
     firstName,
@@ -12,6 +10,7 @@ export default function ProfileCard({ details }): ReactElement {
     employeeCode,
     accountStandard,
     Status,
+    profilePicture
   } = details;
 
   const fullName = firstName + " " + lastName;
@@ -20,10 +19,10 @@ export default function ProfileCard({ details }): ReactElement {
       <TableCell>
         <div className="flex gap-3 items-center">
           {/* Profile image container */}
-          <div className="relative h-20 w-20 overflow-hidden  rounded-md items-center ">
+          <div className="relative h-15 w-15 overflow-hidden  rounded-md items-center ">
             {/* Replace with actual image later */}
             <img
-              src={wrkmen_hrms}
+              src={profilePicture}
               alt={fullName}
               className="h-full w-full object-cover"
             />

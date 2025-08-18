@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 import type { ILogin } from "@/interfaces/ILogin.interface";
 import { useLogin } from "@/hooks/useAuth";
 
+
 export default function LoginPage() {
   const { isAuthenticated } = useUser();
   const navigate = useNavigate();

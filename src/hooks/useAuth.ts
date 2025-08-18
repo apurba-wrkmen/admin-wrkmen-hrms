@@ -1,12 +1,13 @@
 import type { ILogin } from "@/interfaces/ILogin.interface";
 import { userlogin as loginApi, userlogout } from "@/services/apis/auth.api";
+import { createUser } from "@/services/apis/createUser.api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export function useLogin() {
-    const navigate = useNavigate()
     const queryClient = useQueryClient()
+    const navigate = useNavigate()
 
     const { mutate: login, isPending } = useMutation({
         mutationFn: (data: ILogin) => loginApi(data),
@@ -47,7 +48,27 @@ export function useLogout() {
     })
     return { logout, isPending }
 
+}
 
 
 
+
+
+export function useCreateUser() {
+    const queryClient = useQueryClient()
+
+
+    const { mutate: createNewUser, isPending } = useMutation({
+        mutationFn: (data) => createUser(data),
+        onSuccess: (data) => {
+            queryClient.invalidateQueries({ queryKey: ['user'] })
+            console.log(data)
+
+        },
+        onError: (error) => {
+            console.error("Error creating user:", error);
+        },
+    })
+
+    return { createNewUser, isPending }
 }

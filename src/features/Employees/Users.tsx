@@ -1,10 +1,10 @@
 import ProfileCard from "@/components/ProfileCard";
 import ProfileView from "@/components/ProfileView";
-import { Button } from "@/components/ui/button";
-import { Table, TableRow } from "@/components/ui/table";
+
+import { Table } from "@/components/ui/table";
+import UsersHeader from "@/components/UsersHeader";
 import { useEmployees } from "@/hooks/useEmployees";
 import { useState } from "react";
-import { IoPersonAddSharp } from "react-icons/io5";
 
 export default function Users() {
   const { allEmployees, isPending } = useEmployees();
@@ -25,16 +25,10 @@ export default function Users() {
       // console.log("Clicked Employee ID:", employeeId, employeeName);
     }
   };
+
   return (
     <div>
-      <div className="flex">
-        <h1 className="pb-4 text-3xl font-bold">All Users</h1>
-        <Button className="ml-10">
-          {" "}
-          <IoPersonAddSharp /> <span> Add User</span>
-        </Button>
-      </div>
-
+      <UsersHeader />
       <section
         className={seletedEmployee?.firstName ? `grid grid-cols-2` : ``}
         onClick={handleSelect}
