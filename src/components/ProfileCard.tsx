@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import { TableCell, TableRow } from "./ui/table";
 // import { Card } from "@/components/ui/card";
 
-export default function ProfileCard({ details }): ReactElement {
+export default function ProfileCard({ details }: any): ReactElement {
   const {
     firstName,
     lastName,
@@ -10,11 +10,11 @@ export default function ProfileCard({ details }): ReactElement {
     employeeCode,
     accountStandard,
     Status,
-    profilePicture
+    ProfilePhoto,
   } = details;
 
   const fullName = firstName + " " + lastName;
-  return (
+return (
     <TableRow>
       <TableCell>
         <div className="flex gap-3 items-center">
@@ -22,7 +22,7 @@ export default function ProfileCard({ details }): ReactElement {
           <div className="relative h-15 w-15 overflow-hidden  rounded-md items-center ">
             {/* Replace with actual image later */}
             <img
-              src={profilePicture}
+              src={ProfilePhoto}
               alt={fullName}
               className="h-full w-full object-cover"
             />

@@ -13,7 +13,7 @@ export default function Sidebar() {
   return (
     <div className=" flex flex-col w-44 px-8 py-5 justify-between  bg-violet-100 rounded-2xl h-[98vh]">
       <div className="flex flex-col gap-5 ">
-        <img src={wrkmen_hrms} alt="" className="h-[80px]" />
+      <img src={wrkmen_hrms} alt="" className="h-[80px]" />
 
         {navigation.map((el, index) => {
           return (

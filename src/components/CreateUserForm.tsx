@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
+  // CardDescription,
   CardHeader,
   CardTitle,
 } from "./ui/card";
@@ -10,9 +10,9 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import type { ILogin } from "@/interfaces/ILogin.interface";
-import { useCreateUser, useLogin } from "@/hooks/useAuth";
+import { useCreateUser } from "@/hooks/useAuth";
 
 export default function CreateUserForm(): ReactElement {
   const { createNewUser } = useCreateUser();
@@ -24,7 +24,7 @@ export default function CreateUserForm(): ReactElement {
 
   // const { login } = useLogin();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     // login(data);
     // console.log(data)
     createNewUser(data);
@@ -40,7 +40,7 @@ export default function CreateUserForm(): ReactElement {
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
           {/* Email */}
-          <div className="grid gap-2">
+          {/* <div className="grid gap-2">
             <Label htmlFor="first name">First Name</Label>
             <Input
               id="firstName"
@@ -71,7 +71,7 @@ export default function CreateUserForm(): ReactElement {
                 {errors.email.message}
               </p>
             )}
-          </div>
+          </div> */}
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
             <Input

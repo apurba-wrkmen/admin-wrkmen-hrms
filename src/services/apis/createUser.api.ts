@@ -1,6 +1,6 @@
 import supabase from "../supabase"
 
-export const createUser = async (data) => {
+export const createUser = async (data:any) => {
 
 
     const { data: newAuthEmployee, error: usercreationError } = await supabase.auth.admin.createUser({

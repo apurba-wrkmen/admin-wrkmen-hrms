@@ -1,22 +1,26 @@
-import { IoPersonAddSharp } from "react-icons/io5";
-import { Button } from "./ui/button";
-import CreateUserForm from "./CreateUserForm";
-import { useState } from "react";
+// import { useState, type ReactElement } from "react";
+// import CreateUserForm from "./CreateUserForm";
 
 export default function UsersHeader() {
-  const [modal, setModal] = useState(false);
-  const handleOpenModal = () => {
-    setModal(!modal);
-  };
+  // const [modal, setModal] = useState(false);
+
+  // Keeping for future use:
+  // const handleOpenModal = (): void => setModal((prev) => !prev);
+// 
   return (
     <div>
       <div className="flex items-center">
-        <h1 className="text-3xl font-bold">All Users</h1>
+        <h1 className="text-3xl font-bold py-4">All Users</h1>
         {/* <Button className="ml-10" onClick={handleOpenModal}>
           <IoPersonAddSharp /> <span>Add User</span>
         </Button> */}
       </div>
-      <div className="absolute  z-20 ">{modal ? <CreateUserForm /> : null}</div>
+{/* 
+      {modal && (
+        <div className="absolute z-20">
+          <CreateUserForm />
+        </div>
+      )} */}
     </div>
   );
 }
