@@ -10,5 +10,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/", // ✅ This ensures assets load correctly on subdomain
+  // base: "/", // ✅ This ensures assets load correctly on subdomain
 })
